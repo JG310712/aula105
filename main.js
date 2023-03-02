@@ -1,39 +1,50 @@
 //https://teachablemachine.withgoogle.com/models/hQ71FQghM/
-WebKitCSSMatrix.attach('#camera');
+     
+Webcam.attach( '#camera' );
 
 camera = document.getElementById("camera");
-
-Webcam.set({
+      
+  Webcam.set({
     width:350,
     height:300,
-    image_format: 'png',
+    image_format : 'png',
     png_quality:90
-});
+  });
 
-function take_snapshot(){
-    Webcam.snap(function(data_uri){
+function take_snapshot()
+{
+    Webcam.snap(function(data_uri) {
         document.getElementById("result").innerHTML = '<img id="selfie_image" src="'+data_uri+'"/>';
     });
 }
-console.log('m15 version:', m15.version);
 
-classifier = m15.imageClassifier('https://teachablemachine.withgoogle.com/models/hQ71FQghM/model.json',modelLoaded);
+  console.log('ml5 version:', ml5.version);
+  
+  // Initialize the Image Classifier method with MobileNet
+//classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/JACkTMciY/model.json',modelLoaded);
+classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/VK6X7UYHV/model.json',modelLoaded);
 
-function modelLoaded(){
+  // When the model is loaded
+  function modelLoaded() {
     console.log('Model Loaded!');
-}
-
-function check(){
-    img = document.getElementById('selfie.image');
+  }
+      
+  function check()
+  {
+    img = document.getElementById('selfie_image');
     classifier.classify(img, gotResult);
-}
+  }
 
-function gotResult(error, results){
-    if (error){
-        console.error(error);
-    } else{
-        console.log(results);
-        document.getElementById("result_object_name").innerHTML = results[0].label;
-        document.getElementById("result_obect_accuracy").innerHTML = results[0].confidence.toFixed(3);
-    }
+
+// A function to run when we get any errors and the results
+function gotResult(error, results) {
+  // Display error in the console
+  if (error) {
+    console.error(error);
+  } else {
+    // The results are in an array ordered by confidence.
+    console.log(results);
+    document.getElementById("result_object_name").innerHTML = results[0].label;
+    document.getElementById("result_object_accuracy").innerHTML = results[0].confidence.toFixed(3);
+  }
 }
