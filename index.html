@@ -12,37 +12,45 @@
    <link rel="stylesheet" href="style.css">
   
   </head>
+
   <body>
-    <div class="container">
-        <center>
-            <h3 class="btn btn-default heading">IDENTIFICADOR DE IMAGENS</h3>
-            <br><br>
+  <div class="container">
+    
+    <center>
+      <h3 class="btn btn-default heading">IDENTIFICADOR DE IMAGENS</h3>
+      <br><br>
 
-            <p style="font-size: 22px;">O modelo foi treinado para identificar esses objetos:</p>
-            <b class="name_of_objects">
-                Relógio
-                <hr>
-                Colher
-                <hr>
-                SmartPhone
-                <hr>
-                Garrafa
-                <hr>
-            </b>
+      <p style="font-size: 22px;">O modelo foi treinado para identificar estes objetos: </p>
 
-            <label>Visualização da webcam - </label>
-            <div id="camera"></div>
-            <br><br>
-            <div id="result"></div>
-            <br><br>
-            <button onclick="take_snapshot();" class="btn btn-info">Capturar imagem</button>
-            <br><br>
-            <button onclick="check();" class="btn btn-success">Identificar imagem</button>
-            <br><br>
+      <b class="name_of_objects">
+        Relógio
+        <hr>
+        Colher
+        <hr>
+        Smartphone
+        <hr>
+        Garrafa
+        <hr>
+      </b>
 
-            <p style="font-size: 22px;">Objeto:<span id="result_object_name"></span> </p>
-            <p style="font-size: 22px;">Precisão:<span id="result_object_accuracy"></span> </p>
-        </center>
-    </div>
-    <script sr="main.js"></script>
+      <label>Visualização da webcom - </label>
+      <div id="camera"></div>
+      <br><br>
+      <div id="result"></div>
+      <br><br>
+      <button onclick="take_snapshot();" class="btn btn-info">Capturar Imagem</button>
+      <br><br>
+      <button onclick="check();" class="btn btn-success">Identificar Imagem</button>
+      <br><br>
+
+      <p style="font-size: 22px;">Objeto : <span id="result_object_name"></span> </p>
+      <p style="font-size: 22px;">Precisão : <span id="result_object_accuracy"></span> </p>
+    </center>
+
+  </div>
+<script src="main.js"></script>
+
   </body>
+</html>
+
+ 
